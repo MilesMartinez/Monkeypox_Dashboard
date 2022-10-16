@@ -12,4 +12,12 @@ The dashboard is desighed to update daily with the latest reported monkeypox cas
 
 ![Monkeypox ETL Flowchart](diagram.png)
 
-The Lamda function executes a python script that submits a GET request to a URL on this [GitHub repo](https://github.com/globaldothealth/monkeypox) containing a JSON file (which is no longer being uploaded), converts it into a Pandas dataframe, and then loads it into a PostgreSQL database hosted on Amazon RDS.
+The Lambda function executes a Python script containing all business logic. Amazon EventBridge provides a scheduled time as the trigger. This is effectively a serverless cron job.
+
+The Python script executed by AWS Lambda does the following:
+
+1. Submits a GET request to a URL on this [GitHub repo](https://github.com/globaldothealth/monkeypox) containing a JSON file (which is no longer being uploaded)
+2. Converts it into a Pandas dataframe and prepares it for loading
+3. Loads it into a PostgreSQL database hosted on Amazon RDS
+
+Credits to [Global.health](https://github.com/globaldothealth/monkeypox) for maintaining the source data.

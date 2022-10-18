@@ -8,7 +8,7 @@ Note: Daily batch load is currently suspended. Dashboard was last updated Septem
 
 ## Methodology
 
-The dashboard is desighed to update daily with the latest reported monkeypox cases. The ETL is as follows.
+The dashboard is designed to update daily with the latest reported monkeypox cases. The ETL is as follows.
 
 ![Monkeypox ETL Flowchart](diagram.png)
 
